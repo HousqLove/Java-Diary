@@ -1,9 +1,9 @@
 # JAVA基础
-- [IO](.\java基础\01_IO.md)
-- [BigInteger](java基础\02_BigInteger.md)
-- [BigDecimal](java基础\03_BigDecimal.md)
-- [异常](java基础\04_异常.md)
-- [Logging](java基础\05_Logging.md)
+- [IO](./java基础/01_IO.md)
+- [BigInteger](java基础/02_BigInteger.md)
+- [BigDecimal](java基础/03_BigDecimal.md)
+- [异常](java基础/04_异常.md)
+- [Logging](java基础/05_Logging.md)
 - 泛型
 - 反射
 - 注解
