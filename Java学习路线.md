@@ -4,9 +4,9 @@
 - [BigDecimal](java基础/03_BigDecimal.md)
 - [异常](java基础/04_异常.md)
 - [Logging](java基础/05_Logging.md)
+- [反射](java基础/06_反射.md)
+- [注解](java基础/07_注解.md)
 - 泛型
-- 反射
-- 注解
 - 正则表达式
 - 加密与安全
 - 多线程与并发
