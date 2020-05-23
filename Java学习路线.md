@@ -28,9 +28,10 @@
 - Listener
 
 # 数据库
-- mysql
+- 数据库
 - jdbc
 - sql语句
+- mysql
 - 数据库的事务
 - 数据库索引、存储、数据库引擎
 
