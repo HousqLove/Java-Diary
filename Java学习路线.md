@@ -29,7 +29,7 @@
 
 # 数据库
 - 数据库
-- jdbc
+- [jdbc](数据库/01_jdbc.md)
 - sql语句
 - mysql
 - 数据库的事务
