@@ -14,15 +14,18 @@
 - [多线程与并发1](java基础/09_多线程与并发.md)/[多线程与并发2](java基础/10_多线程与并发2.md)
 - 设计模式
 
-
-# web
+- 前端
 - html
 - js、jQuery
 - css
 - Ajax
+- vue
+
+# web
+- [web基础](web/01_web基础.md)
+- servlet
 - Cookie
 - Session
-- servlet
 - MVC
 - Filter
 - Listener
