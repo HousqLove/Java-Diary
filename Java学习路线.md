@@ -23,7 +23,8 @@
 
 # web
 - [web基础](web/01_web基础.md)
-- servlet
+- [servlet](web\02_servlet基础.md)
+- [JSP](web/03_jsp.md)
 - Cookie
 - Session
 - MVC
