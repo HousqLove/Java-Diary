@@ -100,3 +100,69 @@ HttpSession本质上是通过一个名为JSESSION的Cookie来跟踪回话的。�
 
 如果访问的是https，还需要调用setSecure(true), 否则浏览器不会发送该Cookie。
 
+# 部署
+一个Web应用，包含Servlet、Filter这些逻辑文件，还需要JSP这样的试图文件，css，js等静态资源文件。这就需要合理组织文件结构：
+```
+webapp
+|
+|-- pom.xml
+|-- src
+    |
+    |-- main
+    |   |
+    |   |-- java
+    |   
+    |-- resources
+    |-- webapp
+        |
+        |-- WEB-INF
+        |   |
+        |   |--web.xml
+        |
+        |-- favicon.ico
+        |-- static
+        |   |
+        |   |--bootstrap.css
+
+```
+
+把所以的静态资源文件放入static目录，有些服务器会自动添加一个专门处理静态文件的Servlet，如果映射路径为/，会屏蔽掉处理静态文件的Servlet映射。因此需要自己编写一个处理静态文件的FileServlet，映射路径为```/static/*```。
+
+类似Tomcat这样的web服务器，运行的Web应用通常都是业务系统，因此也被称为应用服务器。应用服务器不擅长处理静态文件，也不适合暴露给用户。通常在生产环境部署时，总是使用Nginx这样的服务器充当反向代理和静态服务器，只有动态请求才会放心给应用服务器。
+
+实现上述功能的Nginx配置如下：
+```
+server{
+    listen 80;
+
+    # 静态文件根目录:
+    root /path/to/src/main/webapp;
+
+    access_log /var/log/nginx/webapp_access_log;
+    error_log  /var/log/nginx/webapp_error_log;
+    
+    # 处理静态文件请求:
+    location /static {
+    }
+
+    # 处理静态文件请求:
+    location /favicon.ico {
+    }
+
+    # 不允许请求/WEB-INF:
+    location /WEB-INF {
+        return 404;
+    }
+    
+    # 其他请求转发给Tomcat:
+    location / {
+        proxy_pass       http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+```
+
+使用Nginx配合Tomcat服务器，可以充分发挥Nginx作为网关的优势，既可以高效处理静态文件，也可以把https、防火墙、限速、爬虫等功能放到Nginx中，使得我们自己的WebApp能专注于业务逻辑。
