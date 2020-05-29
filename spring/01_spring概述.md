@@ -107,3 +107,31 @@ Spring的AOP实现就是基于JVM的动态代理。是在容器启动时为我�
 - @AfterReturning：和@After不同的是，只有当目标代码正常返回时，才执行拦截器代码
 - @AfterThrowing：和@After不同的是，只有当目标代码抛出了异常，才执行拦截器代码
 - @Around：能完全控制目标代码是否执行，并可在执行前后、抛出异常后执行任意拦截代码，包含上面所有功能。
+
+# Commons-dbutil
+
+
+# JdbcTemplate
+[JdbcTemplate](02_Spring中的JdbcTemplate.md)
+
+# Spring的事务控制
+JavaEE体系分层开发，事务处理位于业务层。Spring提供了分层设计业务层的事务处理解决方案。提供了一组事务控制的接口，在spring-tx包中。Spring的事务控制都是基于AOP的。
+
+## PlatformTransactionManager
+PlatformTransactionManager是Spring的事务管理器。提供了常用的操作事务的方法：
+- getTransaction：获取事务状态信息
+- commit：提交事务
+- rollback：回滚事务
+常用的实现类有:
+- org.springframework.jdbc.datasource.DataSourceTransactionManager
+- org.springframework.orm.hibernateTransactionManager
+
+## TransactionDefinition
+事务的定义信息对象
+- getName：获取事务对象名称
+- getIsolation：获取事务隔离级别，默认数据库的隔离级别
+- getPropagation：获取事务传播行为
+- getTimeout：获取超时时间，默认-1没有限制，如果有以秒为单位
+- isReadOnly：是否只读
+
+# 响应式编程
