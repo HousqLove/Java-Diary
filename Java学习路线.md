@@ -13,6 +13,7 @@
 - 加密与安全
 - [多线程与并发1](java基础/09_多线程与并发.md)/[多线程与并发2](java基础/10_多线程与并发2.md)
 - 设计模式
+- Junit
 
 - 前端
 - html
@@ -47,7 +48,7 @@
 # 热门框架
 - [Spring](spring/01_spring概述.md)
 - SpringMVC
-- MyBatis
+- [MyBatis](数据库/04_mybatis.md)
 - Hibernate
 - SpringBoot
 - SpringCloud
