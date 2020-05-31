@@ -47,7 +47,7 @@
 
 # 热门框架
 - [Spring](spring/01_spring概述.md)
-- SpringMVC
+- [SpringMVC](spring/03_SpringMVC.md)
 - [MyBatis](数据库/04_mybatis.md)
 - Hibernate
 - SpringBoot
